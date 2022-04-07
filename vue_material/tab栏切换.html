@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .box {
+      display: flex;
+    }
+
+    .box li {
+      flex: 1;
+    }
+
+    .active {
+      background-color: red;
+    }
+
+    .isactive {
+      background-color: pink;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <h2>{{message}}</h2>
+    <button>切换</button>
+    <ul class="box">
+      <li @click='index=0' :class="index==0?'active':''">好好学习</li>
+      <li @click='index=1' :class="index==1?'active':''">天天向上</li>
+    </ul>
+    <ul class="content">
+      <li v-if='index===0'>12334</li>
+      <li v-if='index===1'>22222222</li>
+    </ul>
+  </div>
+  <script src="../第二天/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: "你好",
+        flag: 0,
+        index: 0,
+        num: 0,
+      },
+      methods: {
+
+      }
+
+    })
+  </script>
+</body>
+
+</html>

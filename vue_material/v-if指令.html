@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-if指令</title>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="切换显示" @click="toggleIsShow">
+        <!-- p标签被删除了，dom元素被删除-->
+        <p v-if="isShow">黑马程序员</p>
+        <!-- 只是隐藏了，p标签一直都在 -->
+        <p v-show="isShow">黑马程序员 - v-show修饰</p>
+        <span v-if="temperature>=35"><span v-html=this.temperature+1></span><span>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                isShow:false,
+                temperature:40
+            },
+            methods: {
+                toggleIsShow:function(){
+                    this.isShow = !this.isShow;
+                    console.log(this.temperature);
+                    console.log(this.isShow);
+                    // console.log(data.temperature);
+                }
+            },
+        })
+        
+    </script>
+</body>
+
+</html>

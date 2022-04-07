@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- id: <input type="text" v-model='id'> 
+  name: <input type="text" v-model='name'>  -->
+    <ul v-for='(item,index) in list' :title='item.name'>
+      <li>序号:{{index}}</li>
+      <li>id:{{item.id}}</li>
+      <li>姓名:{{item.name}}</li>
+
+    </ul>
+    <input type="button" value='添加' @click='add'>
+    <h2>{{message}}</h2>
+    <p v-for='item in list'><input type="checkbox" name="" id="">{{item.id}}-----{{item.name}}</p>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: "你好",
+        name: '',
+        id: '',
+        list: [{
+          id: 1,
+          name: '李四'
+        }, {
+          id: 2,
+          name: '张三'
+        }, {
+          id: 3,
+          name: '王五'
+        }]
+      },
+      methods: {
+        add() {
+          this.list.unshift({
+            id: this.id,
+            name: this.name
+          })
+        }
+      }
+
+    })
+  </script>
+</body>
+
+</html>
